@@ -1,73 +1,52 @@
-# React + TypeScript + Vite
+````markdown
+# 🔍 GitHub User Search 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive GitHub user discovery tool built with **React**, **TypeScript**, and **TanStack Query**. This project demonstrates efficient API handling, custom debouncing, and professional UI styling using **shadcn/ui**.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+* **Real-time Search**: Find any GitHub user by their username.
+* **Intelligent Debouncing**: Optimized API calls to prevent rate-limiting and unnecessary network traffic.
+* **TanStack Query Integration**: Advanced data fetching with built-in caching and error management.
+* **Graceful Rate Limit Handling**: Custom UI alerts that inform the user when the GitHub API limit is reached and when it will reset.
+* **Responsive Design**: Fully mobile-friendly layout built with Tailwind CSS.
 
-## React Compiler
+## 🛠️ Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* **Framework**: [React](https://react.dev/) + [Vite](https://vitejs.dev/)
+* **Language**: [TypeScript](https://www.typescriptlang.org/)
+* **State Management**: [TanStack Query](https://tanstack.com/query/latest) (React Query)
+* **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+* **UI Components**: [shadcn/ui](https://ui.shadcn.com/)
+* **Icons**: [Lucide React](https://lucide.dev/)
 
-## Expanding the ESLint configuration
+## 📦 Installation & Setup
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/ansel101/github-user-search.git
+   cd github-user-search
+````
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+2. **Install dependencies**
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+   ```bash
+   npm install
+   ```
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+3. **Run the development server**
+
+   ```bash
+   npm run dev
+   ```
+
+## 🛡️ Rate Limits & API
+
+This application uses the public GitHub Search API. Without a token, users are limited to 10 requests per minute. If you hit the limit, the app will display a countdown until the limit resets.
+
+---
+
+Built by Ansel — 2026
+
 ```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
 ```
